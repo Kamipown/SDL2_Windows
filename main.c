@@ -36,8 +36,14 @@ int					main(int argc, char *argv[])
 	SDL_Window	*window;
 
 	initialization(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
-	window = new_window("Yo", 800, 600, 0);
-	wait_message(5000);
+	if (argc == 3)
+		window = new_window("Yo", atoi(argv[1]), atoi(argv[2]), 0);
+	else
+	{
+		window = new_window("Yo", 800, 600, 0);
+		printf("You can use ./SDL_2_Windows 'width' 'height'\n");
+	}
+	wait_message(1000);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 	return (EXIT_SUCCESS);
