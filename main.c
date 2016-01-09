@@ -3,7 +3,7 @@
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
 
-static void	initialization(Uint32 flags)
+static void			initialization(Uint32 flags)
 {
 	SDL_SetMainReady();
 	if (SDL_Init(flags) != 0)
@@ -13,10 +13,16 @@ static void	initialization(Uint32 flags)
 	}
 }
 
-int			main(int argc, char *argv[])
+static void			wait_message(const Uint32 ms)
+{
+	printf("Wait for %zu ms.\n", ms);
+	SDL_Delay(ms);
+}
+
+int					main(int argc, char *argv[])
 {
 	initialization(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
-	// Code \\
+	wait_message(5000);
 	SDL_Quit();
 	return (EXIT_SUCCESS);
 }
