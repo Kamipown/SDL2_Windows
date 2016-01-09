@@ -31,6 +31,23 @@ static void			wait_message(const Uint32 ms)
 	SDL_Delay(ms);
 }
 
+static void			window_demo(SDL_Window *window)
+{
+	wait_message(2000);
+	printf("\nChange size to 640 * 480\n");
+	SDL_SetWindowSize(window, 640, 480);
+	wait_message(2000);
+	printf("\nHide borders\n");
+	SDL_SetWindowBordered(window, SDL_FALSE);
+	wait_message(2000);
+	printf("\nShow borders\n");
+	SDL_SetWindowBordered(window, SDL_TRUE);
+	wait_message(2000);
+	printf("\nFullscreen\n");
+	SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	wait_message(2000);
+}
+
 int					main(int argc, char *argv[])
 {
 	SDL_Window	*window;
@@ -43,7 +60,7 @@ int					main(int argc, char *argv[])
 		window = new_window("Yo", 800, 600, 0);
 		printf("You can use ./SDL_2_Windows 'width' 'height'\n");
 	}
-	wait_message(1000);
+	window_demo(window);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 	return (EXIT_SUCCESS);
