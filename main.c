@@ -65,3 +65,33 @@ int					main(int argc, char *argv[])
 	SDL_Quit();
 	return (EXIT_SUCCESS);
 }
+
+/*
+	Functions used :
+
+	SDL_Window* SDL_CreateWindow(const char* title, int x, int y, int w, int h, Uint32 flags)
+	void SDL_Delay(Uint32 ms)
+	void SDL_SetWindowSize(SDL_Window* window, int w, int h)
+	void SDL_SetWindowBordered(SDL_Window* window, SDL_bool bordered)
+	int SDL_SetWindowFullscreen(SDL_Window* window, Uint32 flags)
+
+	SDL_CreateWindow returns an SDL_Window on success or NULL on failure.
+		Use SDL_WINDOWPOS_CENTERED to center the window.
+		The SDL_Window is implicitly shown if SDL_WINDOW_HIDDEN is not set.
+
+	SDL_Delay waits a specified number of milliseconds before returning.
+
+	SDL_SetWindowSize change the size of a window.
+
+	SDL_SetWindowBordered show or hide window's borders.
+
+	SDL_SetWindowFullscreen change a window state to fullscreen or windowed.
+		The flag SDL_WINDOW_FULLSCREEN will change the videomode.
+		The flag SDL_WINDOW_FULLSCREEN_DESKTOP just takes the size of the desktop.
+		Use 0 for windowed mode.
+		This function returns 0 on success or a negative error code on failure.
+
+	Notes:
+	- Use SDL_GetWindowFlags to get the currents flags of a window.
+	- Use SDL_GetWindowSize to get the size of a window.
+*/
